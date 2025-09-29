@@ -1,34 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Root } from "./layouts/root/root.layout";
+import { Login } from "./pages/login";
+import { Dashboard } from "./pages/dashboard";
+import { DriverManagement } from "./pages/driver-management";
+import { VehicleManagement } from "./pages/vehicle-management";
+import { MaintenanceManagement } from "./pages/maintenance-management";
+import { RepairManagement } from "./pages/repair-management";
+import { Report } from "./pages/report";
+import { Settings } from "./pages/settings";
+import { LoginCallback } from "./pages/login-callback/login-callback.page";
+import { LogoutCallback } from "./pages/logout-callback/logout-callback.page";
+import { ProtectedRoute } from "./components/common/protected-route/protected-route.component";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login/callback" element={<LoginCallback />} />
+        <Route path="/logout/callback" element={<LogoutCallback />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={
+          <ProtectedRoute>
+            <Root />
+          </ProtectedRoute>
+        }>
+          <Route index element={<Dashboard />} />
+          <Route path="/vehicles" element={<VehicleManagement />} />
+          <Route path="/drivers" element={<DriverManagement />} />
+          <Route path="/maintenances" element={<MaintenanceManagement />} />
+          <Route path="/repairs" element={<RepairManagement />} />
+          <Route path="/reports" element={<Report />} />
+          <Route path="/settings" element={<Settings />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
