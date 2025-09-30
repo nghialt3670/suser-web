@@ -1,1 +1,1 @@
-export { CreateVehicleDialog } from "./create-vehicle-dialog.component";
+export { CreateUserDialog } from "./create-vehicle-dialog.component";

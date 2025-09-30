@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CreateVehicleDialog } from "@/features/user/components/create-user-dialog";
+import { CreateUserDialog } from "@/features/user/components/create-user-dialog";
 import { UserTable } from "@/features/user/components/user-table";
 import { PlusIcon } from "lucide-react";
 import type { FC } from "react";
@@ -12,12 +12,12 @@ export const UserManagement: FC = () => {
           <h1 className="text-2xl font-bold">Quản lý người dùng</h1>
           <p className="text-sm text-gray-500">Danh sách và thông tin chi tiết các người dùng</p>
         </div>
-        <CreateVehicleDialog>
+        <CreateUserDialog>
           <Button>
             <PlusIcon className="w-4 h-4" />
-            <span>Thêm người dùng mới</span>
+            <span>Thêm người dùng</span>
           </Button>
-        </CreateVehicleDialog>
+        </CreateUserDialog>
       </div>
       <UserTable />
     </div>

@@ -1,12 +1,12 @@
-import { vehicleColumns } from "./vehicle-columns.constants"
+import { userColumns } from "./vehicle-columns.constants"
 import { DataTable } from "@/components/common/data-table/data-table.component"
-import { useGetVehiclePageQuery } from "../../hooks/use-get-vehicle-page-query.hook"
+import { useGetUserPageQuery } from "../../hooks/use-get-user-page-query.hook"
 import { useParams } from "react-router-dom"
 
 export const UserTable = () => {
     const params = useParams();
 
-    const { data } = useGetVehiclePageQuery({
+    const { data } = useGetUserPageQuery({
         keyword: params.keyword as string,
         page: params.page ? parseInt(params.page as string) : 1,
         size: params.size ? parseInt(params.size as string) : 10,
@@ -14,7 +14,7 @@ export const UserTable = () => {
 
     return (
         <div>
-            <DataTable columns={vehicleColumns} data={data?.data?.items ?? []} />
+            <DataTable columns={userColumns} data={data?.data?.items ?? []} />
         </div>
     )
 }

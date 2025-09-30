@@ -2,62 +2,45 @@ import { type ColumnDef } from "@tanstack/react-table"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Eye, Edit, Trash2 } from "lucide-react"
-import type { VehicleDetailDto } from "../../types/vehicle-detail-dto.type"
+import type { UserDetailDto } from "../../api/get-user-page.api"
 
-export const vehicleColumns: ColumnDef<VehicleDetailDto>[] = [
+export const userColumns: ColumnDef<UserDetailDto>[] = [
   {
-    accessorKey: "licensePlate",
-    header: "Biển số",
+    accessorKey: "username",
+    header: "Username",
     cell: ({ row }) => {
-      return <div className="font-medium">{row.getValue("licensePlate")}</div>
+      return <div className="font-medium">{row.getValue("username")}</div>
     },
   },
   {
-    accessorKey: "model",
-    header: "Model",
+    accessorKey: "name",
+    header: "Họ tên",
     cell: ({ row }) => {
-      return <div>{row.getValue("model")}</div>
+      return <div>{row.getValue("name")}</div>
     },
   },
   {
-    accessorKey: "type",
-    header: "Loại xe",
+    accessorKey: "isEnabled",
+    header: "Kích hoạt",
     cell: ({ row }) => {
-      return <div>{row.getValue("type")}</div>
-    },
-  },
-  {
-    accessorKey: "yearOfManufacture",
-    header: "Năm SX",
-    cell: ({ row }) => {
-      return <div>{row.getValue("yearOfManufacture")}</div>
-    },
-  },
-  {
-    accessorKey: "kilometersDriven",
-    header: "Km đã đi",
-    cell: ({ row }) => {
-      const km = row.getValue("kilometersDriven") as number
-      return <div>{km.toLocaleString()} km</div>
-    },
-  },
-  {
-    accessorKey: "status",
-    header: "Trạng thái",
-    cell: ({ row }) => {
-      const status = row.getValue("status") as string
+      const enabled = row.getValue("isEnabled") as boolean
       return (
-        <Badge variant="outline">
-          {status}
+        <Badge variant={enabled ? "default" : "secondary"}>
+          {enabled ? "Enabled" : "Disabled"}
         </Badge>
       )
     },
   },
   {
-    accessorKey: "nextMaintenanceDate",
-    header: "Bảo dưỡng tiếp theo",
+    accessorKey: "isAccountNonLocked",
+    header: "Khóa",
     cell: ({ row }) => {
-      return <div>{row.getValue("nextMaintenanceDate")}</div>
+      const nonLocked = row.getValue("isAccountNonLocked") as boolean
+      return (
+        <Badge variant={nonLocked ? "default" : "destructive"}>
+          {nonLocked ? "Unlocked" : "Locked"}
+        </Badge>
+      )
     },
   },
   {
