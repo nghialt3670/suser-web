@@ -75,7 +75,7 @@ export const UserSidebarMenuItem = () => {
               </AvatarFallback>
             </Avatar>
             <div className="flex flex-col items-start text-left">
-              <span className="text-sm font-medium truncate max-w-[140px]">
+              <span className="text-sm font-medium truncate">
                 {userName}
               </span>
               <span className="text-xs text-sidebar-foreground/70 truncate max-w-[120px]">

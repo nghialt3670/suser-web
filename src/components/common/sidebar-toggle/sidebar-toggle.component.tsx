@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { useSidebar } from "@/components/ui/sidebar";
+import { SidebarMenuButton, useSidebar } from "@/components/ui/sidebar";
 import { Menu } from "lucide-react";
 
 export const SidebarToggle = () => {
@@ -10,8 +9,12 @@ export const SidebarToggle = () => {
   };
 
   return (
-    <Button variant="ghost" size="icon" onClick={handleToggleClick}>
+    <SidebarMenuButton
+      className="hover:bg-transparent active:bg-transparent focus-visible:bg-transparent"
+      onClick={handleToggleClick}
+    >
       <Menu />
-    </Button>
+      <h1 className="text-lg font-bold ml-2">sUser</h1>
+    </SidebarMenuButton>
   );
 };
