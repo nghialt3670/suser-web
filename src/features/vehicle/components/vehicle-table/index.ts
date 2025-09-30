@@ -1,1 +1,0 @@
-export { VehicleTable } from "./vehicle-table.component";

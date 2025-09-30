@@ -11,7 +11,7 @@ import {
 import { SidebarToggle } from "../sidebar-toggle";
 import { navigationItems } from "./navigation-items.constants";
 import { useNavigate, useLocation } from "react-router-dom";
-import { UserSidebarMenuItem } from "@/features/user/components/user-sidebar-menu-item";
+import { UserSidebarMenuItem } from "@/features/auth/components/user-sidebar-menu-item";
   
   export const Sidebar = () => {
     const navigate = useNavigate();

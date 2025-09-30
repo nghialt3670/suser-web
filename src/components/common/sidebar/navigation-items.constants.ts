@@ -1,11 +1,9 @@
 import { 
-    Truck, 
-    Users, 
-    Wrench, 
     Settings, 
     BarChart3,
-    FileText,
-    TriangleAlert
+    LayoutGrid,
+    Building2,
+    Users,
   } from "lucide-react";
 
 export const navigationItems = [
@@ -15,29 +13,19 @@ export const navigationItems = [
       path: "/",
     },
     {
-      icon: Truck,
-      label: "Quản lý xe",
-      path: "/vehicles",
-    },
-    {
       icon: Users,
-      label: "Quản lý tài xế",
-      path: "/drivers",
+      label: "Quản lý người dùng",
+      path: "/users",
     },
     {
-      icon: Wrench,
-      label: "Bảo dưỡng",
-      path: "/maintenances",
+      icon: Building2,
+      label: "Quản lý tổ chức",
+      path: "/tenants",
     },
     {
-      icon: TriangleAlert,
-      label: "Sửa chữa",
-      path: "/repairs",
-    },
-    {
-      icon: FileText,
-      label: "Báo cáo",
-      path: "/reports",
+      icon: LayoutGrid,
+      label: "Quản lý ứng dụng",
+      path: "/applications",
     },
     {
       icon: Settings,

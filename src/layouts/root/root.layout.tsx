@@ -6,14 +6,14 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Root = () => {
   const isMobile = useIsMobile();
-  
+
   return (
     <SidebarProvider>
-        <Sidebar />
-        <SidebarInset>
-          {isMobile && <AppBar />}
-          <Outlet />
-        </SidebarInset>
+      <Sidebar />
+      <SidebarInset>
+        {isMobile && <AppBar />}
+        <Outlet />
+      </SidebarInset>
     </SidebarProvider>
   );
 };

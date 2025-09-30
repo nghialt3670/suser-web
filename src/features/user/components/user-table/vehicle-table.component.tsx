@@ -3,7 +3,7 @@ import { DataTable } from "@/components/common/data-table/data-table.component"
 import { useGetVehiclePageQuery } from "../../hooks/use-get-vehicle-page-query.hook"
 import { useParams } from "react-router-dom"
 
-export const VehicleTable = () => {
+export const UserTable = () => {
     const params = useParams();
 
     const { data } = useGetVehiclePageQuery({

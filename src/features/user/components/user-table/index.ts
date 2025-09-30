@@ -1,0 +1,1 @@
+export { UserTable } from "./vehicle-table.component";
